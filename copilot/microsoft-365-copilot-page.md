@@ -57,7 +57,9 @@ You should use a PowerShell script to control access to Copilot for Microsoft 36
 
 To turn on or turn off Copilot for Microsoft 365 in Bing, Edge, and Windows, follow these steps:
 
-1. Download the [PowerShell script](https://download.microsoft.com/download/8/9/d/89d41212-7ece-414c-b6d3-f4ecb070c613/ConfigureM365Copilot.ps1).
+1. Download the PowerShell script from one of these sources:
+   - [Download from Microsoft](https://download.microsoft.com/download/8/9/d/89d41212-7ece-414c-b6d3-f4ecb070c613/ConfigureM365Copilot.ps1) (recommended)
+   - [Download from this repository](scripts/ConfigureM365Copilot.ps1) (alternative/reference implementation)
 2. Open an instance of the Windows PowerShell in admin mode.
 3. Run the following command first: ‘Set-ExecutionPolicy unrestricted’.
 4. Run the PowerShell script.
