@@ -103,7 +103,7 @@ function Get-CopilotConfiguration {
         
         # NOTE: The endpoint below is a PLACEHOLDER and not a real Microsoft Graph API endpoint.
         # The actual endpoint for Copilot configuration is only available in the official Microsoft script.
-        $uri = "https://graph.microsoft.com/v1.0/admin/serviceAnnouncement/copilotConfiguration"
+        $uri = "https://graph.microsoft.com/v1.0/admin/PLACEHOLDER_CopilotConfiguration"
         
         $config = Invoke-MgGraphRequest -Method GET -Uri $uri -ErrorAction Stop
         
@@ -143,7 +143,7 @@ function Set-CopilotConfiguration {
         
         # NOTE: The endpoint below is a PLACEHOLDER and not a real Microsoft Graph API endpoint.
         # The actual endpoint for Copilot configuration is only available in the official Microsoft script.
-        $uri = "https://graph.microsoft.com/v1.0/admin/serviceAnnouncement/copilotConfiguration"
+        $uri = "https://graph.microsoft.com/v1.0/admin/PLACEHOLDER_CopilotConfiguration"
         $body = @{
             copilotEnabled = $enableCopilot
         } | ConvertTo-Json

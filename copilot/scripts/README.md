@@ -67,8 +67,9 @@ The official script contains the correct Microsoft Graph API endpoints and has b
 If you encounter any issues:
 1. Ensure you're running PowerShell as an administrator
 2. Verify you have the required admin role (Search Admin or Global Admin)
-   - To check your roles, go to the [Microsoft 365 admin center](https://admin.microsoft.com) > **Users** > **Active users** > Select your account > **Roles** tab
-   - Or use PowerShell: `Get-MgUserMemberOf -UserId "your-email@domain.com"`
+   - To check your own roles in the admin center: [Microsoft 365 admin center](https://admin.microsoft.com) > Click your profile picture > **My account** > **Roles**
+   - To check other users' roles: Go to **Users** > **Active users** > Select the account > **Roles** tab
+   - Using PowerShell: `Get-MgUserMemberOf -UserId "your-email@domain.com"`
 3. Check that the Microsoft.Graph modules are installed and up to date
    - Run: `Get-Module -ListAvailable Microsoft.Graph*`
    - Update if needed: `Update-Module Microsoft.Graph`
