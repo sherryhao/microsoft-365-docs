@@ -101,7 +101,9 @@ function Get-CopilotConfiguration {
         Write-Host "`nWARNING: This is a reference implementation with placeholder endpoints." -ForegroundColor Yellow
         Write-Host "For production use, please download the official script from Microsoft." -ForegroundColor Yellow
         
-        $uri = "https://graph.microsoft.com/v1.0/search/configuration"
+        # NOTE: The endpoint below is a PLACEHOLDER and not a real Microsoft Graph API endpoint.
+        # The actual endpoint for Copilot configuration is only available in the official Microsoft script.
+        $uri = "https://graph.microsoft.com/v1.0/admin/serviceAnnouncement/copilotConfiguration"
         
         $config = Invoke-MgGraphRequest -Method GET -Uri $uri -ErrorAction Stop
         
@@ -139,7 +141,9 @@ function Set-CopilotConfiguration {
         Write-Host "`nWARNING: This is a reference implementation with placeholder endpoints." -ForegroundColor Yellow
         Write-Host "For production use, please download the official script from Microsoft." -ForegroundColor Yellow
         
-        $uri = "https://graph.microsoft.com/v1.0/search/configuration"
+        # NOTE: The endpoint below is a PLACEHOLDER and not a real Microsoft Graph API endpoint.
+        # The actual endpoint for Copilot configuration is only available in the official Microsoft script.
+        $uri = "https://graph.microsoft.com/v1.0/admin/serviceAnnouncement/copilotConfiguration"
         $body = @{
             copilotEnabled = $enableCopilot
         } | ConvertTo-Json
