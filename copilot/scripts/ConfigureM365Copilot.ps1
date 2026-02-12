@@ -28,6 +28,10 @@
 .NOTES
     You must be a Search Admin or Global Admin to run this script.
     This script requires the Microsoft.Graph PowerShell modules.
+    
+    IMPORTANT: This is a reference implementation. The actual Microsoft Graph API 
+    endpoints for managing Copilot settings may differ. For the official, production-ready 
+    script, download from: https://download.microsoft.com/download/8/9/d/89d41212-7ece-414c-b6d3-f4ecb070c613/ConfigureM365Copilot.ps1
 #>
 
 [CmdletBinding()]
@@ -89,13 +93,19 @@ function Get-CopilotConfiguration {
     try {
         Write-Host "`nRetrieving current Copilot for Microsoft 365 configuration..." -ForegroundColor Cyan
         
-        # Note: The actual Graph API endpoint may vary. This is a placeholder.
-        # Administrators should verify the correct endpoint from Microsoft documentation.
+        # IMPORTANT: This endpoint is a placeholder for reference purposes only.
+        # The actual Microsoft Graph API endpoint for Copilot configuration may differ.
+        # For production use, download the official script from Microsoft:
+        # https://download.microsoft.com/download/8/9/d/89d41212-7ece-414c-b6d3-f4ecb070c613/ConfigureM365Copilot.ps1
+        
+        Write-Host "`nWARNING: This is a reference implementation with placeholder endpoints." -ForegroundColor Yellow
+        Write-Host "For production use, please download the official script from Microsoft." -ForegroundColor Yellow
+        
         $uri = "https://graph.microsoft.com/v1.0/search/configuration"
         
         $config = Invoke-MgGraphRequest -Method GET -Uri $uri -ErrorAction Stop
         
-        if ($config -and $config.copilotEnabled -ne $null) {
+        if ($config -and ($config.PSObject.Properties.Name -contains 'copilotEnabled')) {
             $status = if ($config.copilotEnabled) { "Enabled" } else { "Disabled" }
             Write-Host "Copilot for Microsoft 365 in Bing, Edge, and Windows is currently: $status" -ForegroundColor $(if ($config.copilotEnabled) { "Green" } else { "Yellow" })
             return $config.copilotEnabled
@@ -107,7 +117,8 @@ function Get-CopilotConfiguration {
     }
     catch {
         Write-Host "Error retrieving configuration: $_" -ForegroundColor Red
-        Write-Host "Note: The Graph API endpoint may have changed. Please check Microsoft documentation." -ForegroundColor Yellow
+        Write-Host "`nThis reference implementation may not have the correct API endpoints." -ForegroundColor Yellow
+        Write-Host "Please use the official Microsoft script for production environments." -ForegroundColor Yellow
         return $null
     }
 }
@@ -120,8 +131,14 @@ function Set-CopilotConfiguration {
         $action = if ($enableCopilot) { "Enabling" } else { "Disabling" }
         Write-Host "`n$action Copilot for Microsoft 365 in Bing, Edge, and Windows..." -ForegroundColor Cyan
         
-        # Note: The actual Graph API endpoint and payload may vary. This is a placeholder.
-        # Administrators should verify the correct endpoint and payload from Microsoft documentation.
+        # IMPORTANT: This endpoint and payload structure are placeholders for reference purposes only.
+        # The actual Microsoft Graph API endpoint and request format may differ.
+        # For production use, download the official script from Microsoft:
+        # https://download.microsoft.com/download/8/9/d/89d41212-7ece-414c-b6d3-f4ecb070c613/ConfigureM365Copilot.ps1
+        
+        Write-Host "`nWARNING: This is a reference implementation with placeholder endpoints." -ForegroundColor Yellow
+        Write-Host "For production use, please download the official script from Microsoft." -ForegroundColor Yellow
+        
         $uri = "https://graph.microsoft.com/v1.0/search/configuration"
         $body = @{
             copilotEnabled = $enableCopilot
@@ -138,7 +155,8 @@ function Set-CopilotConfiguration {
     }
     catch {
         Write-Host "Error updating configuration: $_" -ForegroundColor Red
-        Write-Host "Note: The Graph API endpoint may have changed. Please check Microsoft documentation." -ForegroundColor Yellow
+        Write-Host "`nThis reference implementation may not have the correct API endpoints or payload structure." -ForegroundColor Yellow
+        Write-Host "Please use the official Microsoft script for production environments." -ForegroundColor Yellow
         return $false
     }
 }
